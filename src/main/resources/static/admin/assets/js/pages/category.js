@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	// 填充浏览统计数据
 	$.ajax({
-		url: "http://10.2.3.235:80/api/category/list",
+		url: "http://localhost:20001/api/category/list",
 		type: "GET",
 		dataType: "json",
 		success: function(json) {
@@ -33,7 +33,7 @@ $('#confirmBtn').click(function() {
 	var id = $(this).attr("categoryId");
 	$.ajax({
 		type: "DELETE",
-		url: "http://10.2.3.235:80/admin/category/" + id,
+		url: "http://localhost:20001/admin/category/" + id,
 		success: function() {
 			// 刷新页面
 			location.reload();
@@ -51,7 +51,7 @@ $('#addCategoryBtn').click(function() {
 		type: "POST",
 		dataType: "json",
 		contentType: "application/json;charset=utf-8",
-		url: "http://10.2.3.235:80/admin/category",
+		url: "http://localhost:20001/admin/category",
 		data: JSON.stringify(json),
 		success: function() {
 			// 刷新页面
@@ -73,7 +73,7 @@ $('#updateCategoryBtn').click(function() {
 	};
 	$.ajax({
 		type: "PUT",
-		url: "http://10.2.3.235:80/admin/category/" + categoryId,
+		url: "http://localhost:20001/admin/category/" + categoryId,
 		data: JSON.stringify(categoryJson),
 		dataType: "json",
 		contentType: "application/json;charset=utf-8",

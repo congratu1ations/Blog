@@ -1,7 +1,7 @@
 $(document).ready(function () {
     // 填充博文分类信息
     $.ajax({
-        url: "http://10.2.3.235:80/api/category/list",
+        url: "http://localhost:20001/api/category/list",
         type: "GET",
         dataType: "json",
         success: function (json) {
@@ -15,7 +15,7 @@ $(document).ready(function () {
     // 填充博文列表信息
     $.ajax({
         type: "get",
-        url: "http://10.2.3.235:80/api/article/list",
+        url: "http://localhost:20001/api/article/list",
         dataType: "json",
         success: function (json) {
             $.each(json, function (i, item) {
@@ -40,9 +40,9 @@ document.getElementById("articleCategories").onchange = function () {
     var categoryId = $('#articleCategories option:selected').attr("categoryId");
     //	alert(categoryId);
     if (categoryId === "") {
-        var url = "http://10.2.3.235:80/api/article/list";
+        var url = "http://localhost:20001/api/article/list";
     } else {
-        var url = "http://10.2.3.235:80/api/article/list/sort/" + categoryId;
+        var url = "http://localhost:20001/api/article/list/sort/" + categoryId;
     }
     // 填充博文分类信息
     $.ajax({
@@ -79,7 +79,7 @@ $('#confirmBtn').click(function () {
     var id = $(this).attr("articleId");
     $.ajax({
         type: "DELETE",
-        url: "http://10.2.3.235:80/admin/article/" + id,
+        url: "http://localhost:20001/admin/article/" + id,
         success: function () {
             // 刷新页面
             location.reload();
@@ -93,7 +93,7 @@ function updateArticle(id) {
     $('#updateBtn').attr("articleId", id);
     $.ajax({
         type: "get",
-        url: "http://10.2.3.235:80/admin/article/" + id,
+        url: "http://localhost:20001/admin/article/" + id,
         dataType: "json",
         async: false,
         success: function (json) {
@@ -104,7 +104,7 @@ function updateArticle(id) {
             }
             // 填充分类数据
             $.ajax({
-                url: "http://10.2.3.235:80/api/category/list",
+                url: "http://localhost:20001/api/category/list",
                 type: "GET",
                 dataType: "json",
                 async: false,
@@ -162,7 +162,7 @@ $('#updateBtn').click(function () {
     }
     $.ajax({
         type: "PUT",
-        url: "http://10.2.3.235:80/admin/article/" + articleId,
+        url: "http://localhost:20001/admin/article/" + articleId,
         dataType: "json",
         contentType: "application/json;charset=utf-8",
         data: JSON.stringify(article),
@@ -194,7 +194,7 @@ $('#addArticleBtn').click(function () {
     }
     $.ajax({
         type: "POST",
-        url: "http://10.2.3.235:80/admin/article/",
+        url: "http://localhost:20001/admin/article/",
         dataType: "json",
         contentType: "application/json;charset=utf-8",
         data: JSON.stringify(article),

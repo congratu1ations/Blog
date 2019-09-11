@@ -2,7 +2,7 @@ $(document).ready(function() {
 	// 填充文章列表数据
 	$.ajax({
 		type: "get",
-		url: "http://10.2.3.235:80/api/article/list",
+		url: "http://localhost:20001/api/article/list",
 		dataType: "json",
 		contentType: "application/json;charset=utf-8",
 		success: function(json) {
@@ -22,7 +22,7 @@ $(document).ready(function() {
 function addCommentList(id) {
 	$.ajax({
 		type: "get",
-		url: "http://10.2.3.235:80/api/comment/article/" + id,
+		url: "http://localhost:20001/api/comment/article/" + id,
 		dataType: "json",
 		contentType: "application/json;charset=utf-8",
 		success: function(json) {
@@ -62,7 +62,7 @@ $('#confirmBtn').click(function() {
 	//	alert(id);
 	$.ajax({
 		type: "DELETE",
-		url: "http://10.2.3.235:80/admin/comment/article/" + id,
+		url: "http://localhost:20001/admin/comment/article/" + id,
 		success: function() {
 			// 刷新页面
 			location.reload();
