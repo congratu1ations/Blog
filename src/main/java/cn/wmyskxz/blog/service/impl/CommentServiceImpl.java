@@ -53,7 +53,7 @@ public class CommentServiceImpl implements CommentService {
         comment.setEmail(articleCommentDto.getEmail());
         comment.setId(articleCommentDto.getId());
         comment.setContent(articleCommentDto.getContent());
-//        addComment(comment);
+        addComment(comment);
         // 再更新tbl_article_comment作关联
         CommentExample example = new CommentExample();
         example.setOrderByClause("id desc");

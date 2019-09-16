@@ -155,7 +155,6 @@ public class ForeController extends BaseController {
         String ip = request.getRemoteAddr();
         articleCommentDto.setIp(ip);
         articleCommentDto.setArticleId(id);
-        System.out.println("vv2019-09-10 16:16:562019-09-10 16:16:562019-09-10 16:16:56"+id);
         commentService.addArticleComment(articleCommentDto);
 
         return null;
